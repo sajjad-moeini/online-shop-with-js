@@ -1,6 +1,6 @@
 
-function chooseSliderSlideCount(width){
-       if(width > 998){
+function chooseSliderSlideCount(width) {
+       if (width > 998) {
               const swiper = new Swiper(".mySwiper", {
                      slidesPerView: 4,
                      spaceBetween: 30,
@@ -9,7 +9,18 @@ function chooseSliderSlideCount(width){
                             clickable: true,
                      },
               });
-       }else if(width < 998){
+       } else if (width < 998) {
+              const swiper = new Swiper(".mySwiper", {
+                     slidesPerView: 3,
+                     spaceBetween: 30,
+                     pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                     },
+              });
+       } 
+
+        if (width < 768) {
               const swiper = new Swiper(".mySwiper", {
                      slidesPerView: 2,
                      spaceBetween: 30,
@@ -18,7 +29,8 @@ function chooseSliderSlideCount(width){
                             clickable: true,
                      },
               });
-       }else if(width < 576){
+       }
+        if(width < 576){
               const swiper = new Swiper(".mySwiper", {
                      slidesPerView: 1,
                      spaceBetween: 30,
@@ -30,13 +42,10 @@ function chooseSliderSlideCount(width){
        }
 }
 
-window.addEventListener('load',(event)=>{
-
-console.log(document.body.scrollWidth);
-chooseSliderSlideCount(document.body.scrollWidth)
-})
-window.addEventListener('resize',(event)=>{
-
-    
+window.addEventListener('load', (event) => {
        chooseSliderSlideCount(document.body.scrollWidth)
-       })
+})
+window.addEventListener('resize', (event) => {
+       chooseSliderSlideCount(document.body.scrollWidth)
+       location.href(0)
+})
