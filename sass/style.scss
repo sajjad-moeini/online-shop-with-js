@@ -1,0 +1,463 @@
+@font-face {
+       font-family: gandom;
+       src: url(../fonts/Gandom.woff);
+}
+*{
+       margin: 0 !important;
+       padding: 0 ;
+       box-sizing: border-box;
+}
+::-webkit-scrollbar {
+       width: 10px;
+     }
+     
+     /* Track */
+     ::-webkit-scrollbar-track {
+       background: #f1f1f1;
+     }
+     
+     /* Handle */
+     ::-webkit-scrollbar-thumb {
+       background: #888;
+       border-radius: 1vw;
+     }
+     
+     /* Handle on hover */
+     ::-webkit-scrollbar-thumb:hover {
+       background: #555;
+     }
+body{
+       font-family: gandom;
+       overflow-x: hidden;
+       width: 100vw;
+}
+.header-bg{
+       width: 100%;
+       height: 120% !important;
+       top: 0;
+       position: absolute;
+       background: url(../pics/bg/pexels-life-of-pix-8892.jpg);
+       background-size: cover;
+       filter: grayscale(50%);
+       z-index: -1;
+}
+
+.cp{
+       cursor: pointer;
+}
+.d-flex-centering{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+}
+a{
+       text-decoration: none;
+}
+ul{list-style: none;}
+.h-10{
+       height: 10%;
+}
+.h-90{
+       height: 90%;
+}
+
+///////////////////////////////// navbar start
+ .main-nav{
+background: rgb(90, 112, 207);
+position: fixed !important;
+z-index: 1;
+width: 100% !important;
+margin: 0 !important;
+left: 0;
+right: 0 !important;
+top: 0;
+}
+.nav-link,.navbar-brand{
+       color: #f1f1f1;
+       &:hover{
+              color: rgb(15, 33, 88);
+       }
+       font-size: larger;
+}
+.navbar-brand{
+       font-size: 1.5rem;
+       margin-left: 7vw !important;
+}
+.navbar-search-btn{
+       margin-right: -1.5vw !important;
+       background-color: royalblue !important;
+}
+.navbar-toggler,
+.navbar-toggler-icon{
+       color: #f1f1f1 !important;
+}
+.active{
+       box-shadow: 0px 0px 5px 1px white;
+       border-radius: .9vw;
+}
+
+.second-nav{
+       position: fixed;
+     top: 3.9rem !important;
+     left: 0;
+     right: 0;
+      background-color: #9589898a;
+      z-index: 1;
+}
+.cart-icon-container{
+       margin-right: -5vw !important;
+       margin-bottom: 1vh !important;
+}
+
+///////////////////////////////// navbar finish
+/// ///////////////////////////////// main start
+main{
+       margin-top: 15vh !important;
+}
+///////////////////////////////// first off box start
+.first-box-img{
+       border-radius: 2vw;
+       box-shadow: -5px 5px 10px 1px white;
+}
+/// ///////////////////////////////// first off box finish
+.first-off-box{
+       height: 80vh !important;
+}
+.first-off-box-btn{
+       transition: all .5s;
+       &:hover{
+              background-color: royalblue;
+              border: 0;
+              box-shadow: 0px 5px 10px 1px white;
+       }
+}
+///////////////////////////////// suggest start
+.suggest{
+       height: 35vh;
+}
+.suggest-pic-box{
+       transition: all .5s;
+       img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+       }
+       &:hover{
+              transform: translateY(-2vh);
+              box-shadow: 0px 10px 10px 1px gray;
+       }
+}
+.suggest-box-text{
+       position: absolute;
+       top: 80;
+       left: 30;
+
+       h5{
+              color: rgb(74, 73, 73);
+       }
+}
+//////////////////////////////////// suggest finish
+
+///////////////////////////////// top-sellers start
+ 
+.sections-title{
+       width: 100%;
+       
+       
+       margin:5vh 0 !important;
+       
+       h2{
+              width: fit-content;
+              cursor: pointer;
+              border-bottom: 4px solid gray;
+              transition: all .5s;
+              &:hover{
+                     border-bottom: 4px solid rgb(17, 82, 135);
+                     color: #555;
+              }
+       }
+}
+
+/// ///////////////////////////////// top-sellers finish
+
+/// ///////////////////////////////// store pic start
+.store-pic{
+       margin-top: 10vh;
+       width: 100% !important;
+       height: 40vh !important;
+       background: url(../pics/bg/pxfuel\ \(2\).jpg);
+       background-size: cover;
+       background-attachment: fixed;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       p{
+              font-size: 2.5rem;
+              color: #fff;
+       }
+    
+}
+///////////////////////////////// store pic finish
+
+
+
+
+.unique-style{
+       width: 100%;
+       display: flex;
+       margin-top: 10vh !important;
+       height: 30vh !important;
+       background: url(../pics/bg/HD-wallpaper-fashion-models-models-beautiful-girls-female-and-men-casual-clothes-fashion-beautiful-boys.jpg);
+       background-size: cover;
+       background-attachment: fixed;
+}
+.unique-style-container{
+       background-color: rgba(128, 128, 128, 0.422);
+       h1{
+              color: #fff;
+       }
+       button{
+              font-size: 1rem;
+              padding: .7vh 1vw !important;
+              border: 0;
+              border-radius: .5vw;
+              background-color: #48b0c7;
+              color: #fff;
+              transition: all .5s;
+              cursor: pointer;
+              &:hover{
+                     background-color: #1c768a;
+              }
+       }
+}
+
+.why-us{
+       width: 100%;
+       margin-top: 10vh !important;
+       display: flex;
+       flex-direction: column;
+       align-items: center
+}
+
+.why-us-boxes{
+       width: 90%;
+       display: flex;
+       flex-wrap: wrap;
+}
+.why-us-box{
+       width: 35%;
+       height: 20vh;
+       margin: 5vh 5vw !important;
+       display: flex;
+       gap: 10vw;
+       position: relative;
+       background-color: rgba(128, 128, 128, 0.137);
+       border-radius: 2vw;
+       img{
+              position: absolute;
+              width: 25%;
+              right: -65;
+              top: -10;
+              height: 107%;
+              border-radius: 50%;
+       }
+}
+.why-us-inform{
+       height: 100%;
+       width: 50%;
+       margin-right: 15% !important;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-around;
+       p{
+              color: rgba(0, 0, 0, 0.527);
+       }
+
+}
+.why-us-box-title{
+       font-size: 1.7rem;
+}
+
+/// /////////////////////////////////' main finish'
+///////////////////////////////// 'companys start'
+.companys{
+       background-color: #88888885;
+       margin-top: 10vh !important;
+}
+.companys-container{
+       width: 90%;
+       margin: 0 auto !important;
+       height: 20vh;
+       padding: 5vh 0;
+       img{
+              cursor: pointer;
+       }
+}
+///////////////////////////////// companys start
+
+///////////////////////////////// footer start
+
+footer{
+       width: 100vw;
+       height: 30vh;
+       background-color: rgba(90, 112, 207, 0.596);
+       background-size: cover;
+       display: flex;
+       justify-content: space-around;
+       padding-top: 10vh;
+}
+.first-footer-ul{
+       color: #fff;
+       li{
+              cursor: pointer;
+              transition: all .5s;
+              &:hover{
+                     color: rgb(15, 33, 88);
+              }
+       }
+}
+.second-footer-ul{
+       a{
+              color: #fff;
+              transition: all .5s;
+              &:hover{
+                     color: rgb(15, 33, 88);
+              }
+       }
+}
+
+///////////////////////////////// footer finish
+
+@media screen and (max-width:768px) {
+       .account-nav-item{
+              font-size: 1rem !important;
+       }
+       .navbar-search-btn{
+              padding: .5vh .5vw;
+       }
+} 
+@media screen and (max-width:1044px){
+       .suggest-box-text{
+              position: absolute;
+              top: 30;
+              left: 12;
+              h3{
+                     font-size: .8rem;
+              }
+              h5{
+                     font-size: .5rem;
+              }
+       }
+       .top-seller-box{
+              width: 45% !important;
+              margin-top: 5vh !important;
+       }
+       .store-pic{
+              p{
+                     font-size: 1.7rem;
+              }
+       }
+       .why-us-box{
+              width: 100% !important;
+
+       }
+}
+@media screen and (max-width:568px){
+       .top-seller-box{
+              h3{
+                     font-size: .9rem;
+              }
+              .d-flex{
+                     h5{
+                            font-size: .5rem;
+                     }
+                     button{
+                            padding-left: 1vw;
+                            padding-right: 1vw;
+                     }
+                     
+              }
+       }
+       .store-pic{
+              p{
+                     font-size: 1rem;
+              }
+       }
+       .unique-style-container{
+              h1{
+                     font-size: 1.4rem;
+              }
+       }
+       .why-us-inform{
+              h4{
+                     font-size: 1.1rem !important;
+              }
+              p{
+                     font-style: .3rem !important;
+              }
+       }
+}
+
+.swiper {
+       width: 100%;
+       height: 100%;
+       padding: 5vh !important;
+       z-index: 0;
+     }
+ 
+     .swiper-slide {
+       background-color: rgba(128, 128, 128, 0.317);
+       box-shadow: 0px 5px 10px 1px gray;
+        border-radius: 1.5vw;
+        overflow: hidden;
+       display: flex;
+       padding-bottom: 1vh;
+       transition: all .5s;
+       cursor: pointer;
+       &:hover{
+               transform: translateY(-2vh);
+        }
+     }
+ 
+     .swiper-slide img {
+       width: 100%;
+       height: 75%;
+     }
+     .box-details{
+        width: 100%;
+        height: 25%;
+
+        margin-top: -1vh;
+ 
+        .d-flex{
+              
+               justify-content: space-around;
+               align-items: center;
+               
+               h5{
+                      margin-right: -5% !important;
+               }
+               button{
+                      font-size: 1rem;
+                      background-color: #48b0c7;
+                      padding: .8vh 1vw;
+                      color: #fff;
+                      border: 0;
+                      border-radius: .5vw;
+                      cursor: pointer;
+                      transition: all .5s;
+                      &:hover{
+                             background-color: #1c768a;
+                      }
+        
+               }
+        }
+ 
+        h3{
+              align-self: flex-start;
+              text-align: start;
+              padding-right: 5%;
+               margin-top: 2%;
+        }
+       
+     }

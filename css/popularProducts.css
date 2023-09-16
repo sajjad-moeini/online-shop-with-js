@@ -1,0 +1,188 @@
+@font-face {
+  font-family: gandom;
+  src: url(../fonts/Gandom.woff);
+}
+* {
+  margin: 0 !important;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1vw;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  font-family: gandom;
+  overflow-x: hidden;
+  width: 100vw;
+  background: url(../pics/bg/pexels-life-of-pix-8892.jpg);
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.d-flex-centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.h-10 {
+  height: 10%;
+}
+
+.h-90 {
+  height: 90%;
+}
+
+.main-nav {
+  background: rgb(90, 112, 207);
+  position: fixed !important;
+  z-index: 1;
+  width: 100% !important;
+  margin: 0 !important;
+  left: 0;
+  right: 0 !important;
+  top: 0;
+}
+
+.nav-link, .navbar-brand {
+  color: #f1f1f1;
+  font-size: larger;
+}
+.nav-link:hover, .navbar-brand:hover {
+  color: rgb(15, 33, 88);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  margin-left: 7vw !important;
+}
+
+.navbar-search-btn {
+  margin-right: -1.5vw !important;
+  background-color: royalblue !important;
+}
+
+.navbar-toggler,
+.navbar-toggler-icon {
+  color: #f1f1f1 !important;
+}
+
+.active {
+  box-shadow: 0px 0px 5px 1px white;
+  border-radius: 0.9vw;
+}
+
+.second-nav {
+  position: fixed;
+  top: 3.9rem !important;
+  left: 0;
+  right: 0;
+  background-color: rgba(149, 137, 137, 0.5411764706);
+  z-index: 1;
+}
+
+.cart-icon-container {
+  margin-right: -5vw !important;
+  margin-bottom: 1vh !important;
+}
+
+main {
+  margin-top: 15vh !important;
+}
+
+.cards-container {
+  width: 95%;
+  margin: auto !important;
+  padding-top: 5vh;
+}
+
+.card {
+  width: 18.5rem;
+  margin: 1rem auto !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.card img {
+  height: 50% !important;
+}
+.card a {
+  margin-right: auto !important;
+  margin-left: 2vw !important;
+}
+
+.companys {
+  background-color: rgba(136, 136, 136, 0.5215686275);
+  margin-top: 10vh !important;
+}
+
+.companys-container {
+  width: 90%;
+  margin: 0 auto !important;
+  height: 20vh;
+  padding: 5vh 0;
+}
+.companys-container img {
+  cursor: pointer;
+}
+
+footer {
+  width: 100vw;
+  height: 30vh;
+  background-color: rgba(90, 112, 207, 0.596);
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10vh;
+}
+
+.first-footer-ul {
+  color: #fff;
+}
+.first-footer-ul li {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.first-footer-ul li:hover {
+  color: rgb(15, 33, 88);
+}
+
+.second-footer-ul a {
+  color: #fff;
+  transition: all 0.5s;
+}
+.second-footer-ul a:hover {
+  color: rgb(15, 33, 88);
+}
+
+@media screen and (max-width: 1200px) {
+  .cart-icon-container {
+    margin-right: 0 !important;
+  }
+}/*# sourceMappingURL=popularProducts.css.map */
