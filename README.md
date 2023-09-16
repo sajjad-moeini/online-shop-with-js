@@ -1,1 +1,1 @@
-[DEMO](https://sajjad-moeini.github.io/persian-online-shop-v2/)
+[DEMO](https://sajjad-moeini.github.io/online-shop-with-js/)
