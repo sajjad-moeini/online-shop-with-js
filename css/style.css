@@ -74,7 +74,7 @@ ul {
 .main-nav {
   background: rgb(90, 112, 207);
   position: fixed !important;
-  z-index: 1;
+  z-index: 200 !important;
   width: 100% !important;
   margin: 0 !important;
   left: 0;
@@ -111,12 +111,12 @@ ul {
 }
 
 .second-nav {
-  position: fixed;
+  position: fixed !important;
   top: 3.9rem !important;
   left: 0;
   right: 0;
   background-color: rgba(149, 137, 137, 0.5411764706);
-  z-index: 1;
+  z-index: 1 !important;
 }
 
 .cart-icon-container {

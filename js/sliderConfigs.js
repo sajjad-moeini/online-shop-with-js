@@ -7,7 +7,7 @@ function chooseSliderSlideCount(width) {
                      pagination: {
                             el: ".swiper-pagination",
                             clickable: true,
-                     },
+                          },
               });
        } else if (width < 998) {
               const swiper = new Swiper(".mySwiper", {
