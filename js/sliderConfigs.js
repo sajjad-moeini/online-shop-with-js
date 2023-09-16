@@ -6,6 +6,26 @@ const swiper = new Swiper(".mySwiper", {
               clickable: true,
        },
 });
-document.body.addEventListener('resize',(e)=>{
-       console.log('ss');
+
+window.addEventListener('resize',(e)=>{
+       console.log(e.target.innerWidth);
+       if(e.target.innerWidth == 998){
+              const swiper = new Swiper(".mySwiper", {
+                     slidesPerView: 2,
+                     spaceBetween: 30,
+                     pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                     },
+              });
+       }else if(e.target.innerWidth == 576){
+              const swiper = new Swiper(".mySwiper", {
+                     slidesPerView: 1,
+                     spaceBetween: 30,
+                     pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                     },
+              });
+       }
 })
