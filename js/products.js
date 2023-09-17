@@ -30,7 +30,7 @@ function productsLoader() {
                          ${product.off ? `
                          <h6 class="position-absolute off-price">
                           ${
-                            (product.price - ((product.price * product.off) / 100)).toLocaleString()
+                            Math.round( (product.price - ((product.price * product.off) / 100))).toLocaleString()
                           } تومان
                           </h6>
                           <div class="position-absolute card-price-linethrough"></div>
