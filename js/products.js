@@ -76,7 +76,7 @@ ${productsLoader()
 </div>
 </main>
 <div class="footer-container">
-${companys()}
+${companys(allInformations.companys.sidePageImgSrc)}
 <footer>
        ${footerFirstUl()}      
        ${footerSecondUl()}

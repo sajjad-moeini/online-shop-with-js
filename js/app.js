@@ -40,7 +40,7 @@ ${uniqueStyle()}
  ${whyUs()}
  </main>
  <div class="footer-container">
- ${companys()}
+ ${companys(allInformations.companys.imageSrc)}
  <footer>
         ${footerFirstUl()}      
         ${footerSecondUl()}

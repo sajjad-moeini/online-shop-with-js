@@ -3,10 +3,10 @@ import allInformations from "../../pages/informations.js";
 
 
 
-function companys() {
+function companys(srcs) {
        let container = document.createElement('div')
       
-     let companysBoxCodes =  allInformations.companys.imageSrc.map(image=>{
+     let companysBoxCodes =  srcs.map(image=>{
               return (`
               <img src=${image} class="col-2 col-md-1 rounded-circle mx-auto" alt="b">
               `)
