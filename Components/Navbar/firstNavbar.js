@@ -1,13 +1,13 @@
 import allInformations from "../../pages/informations.js"
-let nav = allInformations.mainNavbar
 
 
-function firstNavBar() {
+
+function firstNavBar(nav,logo) {
        let navbarContainer = document.createElement('section')
        let firstNav = document.createElement('nav')
        firstNav.className = 'navbar navbar-expand-lg main-nav'
 
-       let navbarItems = nav.mainPageNavbarItems.map(item => {
+       let navbarItems = nav.map(item => {
               if (item.title == document.title) {
                      return (
                             `
@@ -33,7 +33,7 @@ function firstNavBar() {
        firstNav.innerHTML = `
        <div class="container-fluid">
        <a class="navbar-brand" href="index.html">
-              ${nav.logo.title}
+              ${logo.title}
        </a>
        <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent">

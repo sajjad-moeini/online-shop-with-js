@@ -12,10 +12,12 @@ import footerSecondUl from "../Components/footer/secondUl.js"
 let topSellerSlider = document.querySelector('.swiper-items-container-top-saled')
 let newProductsSlider = document.querySelector('.swiper-items-container-new-products')
 
+let nav = allInformations.mainNavbar.mainPageNavbarItems
+let logo =allInformations.mainNavbar.logo
 
 document.body.insertAdjacentHTML('afterbegin', `
 <header>
-${firstNavBar()}
+${firstNavBar(nav,logo)}
 ${secondNavbar()}
 </header>
 <div class="header-bg"></div>
