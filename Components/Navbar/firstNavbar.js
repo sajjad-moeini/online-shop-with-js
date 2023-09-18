@@ -2,7 +2,7 @@ import allInformations from "../../pages/informations.js"
 
 
 
-function firstNavBar(nav,logo) {
+function firstNavBar(nav,logo,logoHref) {
        let navbarContainer = document.createElement('section')
        let firstNav = document.createElement('nav')
        firstNav.className = 'navbar navbar-expand-lg main-nav'
@@ -32,7 +32,7 @@ function firstNavBar(nav,logo) {
 
        firstNav.innerHTML = `
        <div class="container-fluid">
-       <a class="navbar-brand" href="index.html">
+       <a class="navbar-brand" href=${logoHref}>
               ${logo.title}
        </a>
        <button class="navbar-toggler " type="button" data-bs-toggle="collapse"

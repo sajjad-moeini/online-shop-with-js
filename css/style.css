@@ -437,4 +437,8 @@ footer {
   text-align: start;
   padding-right: 5%;
   margin-top: 2%;
+}
+
+.modal-header, .modal-body, .modal-footer {
+  background-color: #555;
 }/*# sourceMappingURL=style.css.map */

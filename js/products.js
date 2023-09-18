@@ -50,7 +50,7 @@ function productsLoader() {
 
 document.body.insertAdjacentHTML('afterbegin', `
 <header>
-${firstNavBar(nav, logo)}
+${firstNavBar(nav, logo,"../index.html")}
  ${secondNavbar()}
 </header>
 <main class="row w-100">
