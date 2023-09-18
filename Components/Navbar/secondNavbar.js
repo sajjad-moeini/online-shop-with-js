@@ -44,14 +44,45 @@ function secondNavbar(){
              پسورد :
       </label>
       <input type="password" id="password-login-item"  class="form-control mt-3" placeholder="پسورد خود را وارد کنید">
-      <span class="form-text text-danger cp">
+      <span class="form-text text-danger cp"
+      data-bs-toggle="modal"
+                          data-bs-target="#RegisterModal">
              هنوز ثبت نام نکرده اید ؟
       </span>
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
-        <button type="button" class="btn btn-primary">ورود </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+        <button type="button" class="btn btn-primary ms-3">ورود </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="RegisterModal" tabindex="-1" >
+  <div class="modal-dialog  modal-dialog-centered  mx-auto">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-light">  فرم ثبت نام </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+      </div>
+      <div class="modal-body">
+      <input type="text" id="username-login-item" class="form-control mt-4" placeholder="نام و نام خانوادگی خود را وارد کنید">
+      
+      <input type="text" id="username-login-item" class="form-control mt-4" placeholder="نام کاربری خود را انتخاب کنید">
+      <span class="text-danger">
+      نام کاربری باید بین 6 تا 20 کاراکتر داشته باشد
+      </span>
+      <input type="text" id="username-login-item" class="form-control mt-2" placeholder="ایمیل خود را وارد کنید">
+     <input type="text" id="username-login-item" class="form-control mt-4" placeholder="رمز عبور خود را وارد کنید">
+     <span class="text-danger">
+     رمز عبور باید بین 8 تا 20 کاراکتر داشته باشد
+     </span>
+      <input type="text" id="username-login-item" class="form-control mt-2" placeholder="رمز عبور خود را تکرار کنید"></input>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+        <button type="button" class="btn btn-success ms-3">ثبت نام </button>
       </div>
     </div>
   </div>
@@ -60,3 +91,7 @@ function secondNavbar(){
      return secondNavbarContainer.innerHTML
 }
 export default secondNavbar
+
+
+
+
