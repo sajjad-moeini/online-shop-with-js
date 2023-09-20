@@ -36,7 +36,7 @@ function productsLoader() {
                           <div class="position-absolute card-price-linethrough"></div>
                          `:''} 
                      </a>
-                     <a href="#" class=" btn btn-primary ">
+                     <a href="#" class=" btn btn-primary " data-bs-toggle="modal" data-bs-target="#productModal${product.id}"> 
                             مشاهده
                      </a>
               </div>
@@ -44,7 +44,91 @@ function productsLoader() {
               product.off ? (`<div class="position-absolute d-flex-centering bg-danger off-badge">% ${product.off} --</div>`) : ('')
              } 
        </div>
-              `)
+       <div class="modal fade" id="productModal${product.id}" tabindex="-1">
+       <div class="modal-dialog modal-lg modal-dialog-centered mx-auto">
+         <div class="modal-content">
+         <div class="modal-header">
+         <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+       </div>
+         <div class="product-container p-3">
+         <div class="row about-product-container px-3">
+                <div class="col-12 col-md-4 product-pics-container p-5">
+                       <img src=../${product.mainImgSrc}
+                              class="w-100 img-fluid product-lg-img rounded-3" alt="">
+                       <div class="row">
+
+                       ${product.imgSrc.map(img=>{
+                            return(
+                                   `
+                                   <div class="col-4 h-25 sm-img-container">
+                                   <img src=../${img}
+                                          class="w-100 img-fluid h-100 product-sm-img rounded-3" alt="">
+                            </div>
+                                   `
+                            )
+                       }).join('')}
+                       </div>
+                </div>
+                <div class="col-12 col-md-8 p-md-5 ">
+                       <div class="row">
+                              <div class="h1">
+${product.name}
+                              </div>
+                              <div class="h4 mt-4">
+                                     درباره محصول :
+                              </div>
+                              <p class="mt-4">
+                           ${product.desc}
+                              </p>
+
+                       </div>
+
+                </div>
+
+
+
+         </div>
+         <div class="h3 text-light mt-4 ps-3">
+                سایز های موجود :
+         </div>
+         <div class="d-flex flex-wrap sizes-container">
+                <div class="size-box-container">
+                       <span>30</span>
+                </div>
+                <div class="size-box-container">
+                       <span>32</span>
+                </div>
+                <div class="size-box-container">
+                       <span>34</span>
+                </div>
+                <div class="size-box-container">
+                       <span>36</span>
+                </div>
+                <div class="size-box-container">
+                       <span>38</span>
+                </div>
+                <div class="size-box-container">
+                       <span>40</span>
+                </div>
+                <div class="size-box-container">
+                       <span>42</span>
+                </div>
+                <div class="size-box-container">
+                       <span>44</span>
+                </div>
+         </div>
+
+         <div class="w-100 d-flex d-flex-centering">
+                <a class=" btn add-to-cart-btn mx-auto" data-bs-dismiss="modal">
+                       افزودن به سبد خرید
+                </a>
+         </div>
+  </div>
+           
+         </div>
+       </div>
+     </div>
+       `)
        })
 }
 
