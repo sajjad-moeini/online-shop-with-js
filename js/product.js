@@ -7,7 +7,15 @@ console.log(product);
 
 document.body.insertAdjacentHTML('beforeend',`
 <div class="product-container p-3">
+
 <div class="row about-product-container px-3">
+<div className="row closeBtn">
+<a href="products.html">
+<i class="fa fa-close closeBtn ">
+</i>
+</a>
+
+</div>
        <div class="col-12 col-md-4 product-pics-container p-5">
               <img src=../${product.mainImgSrc}
                      class="w-100 img-fluid product-lg-img rounded-3" alt="">
@@ -19,7 +27,7 @@ document.body.insertAdjacentHTML('beforeend',`
                             class="w-100 img-fluid h-100 product-sm-img rounded-3" alt="">
               </div>
                      `)
-              })}
+              }).join('')}
               </div>
        </div>
        <div class="col-12 col-md-8 p-md-5 ">
@@ -34,6 +42,10 @@ ${product.name}
                    ${product.desc}
                      </p>
 
+              </div>
+              <div className="price h1 mt-auto ">
+              قیمت :
+              ${product.price} تومان
               </div>
 
        </div>
@@ -69,7 +81,7 @@ ${product.name}
 </div>
 
 <div class="w-100 d-flex d-flex-centering">
-       <a class=" btn add-to-cart-btn mx-auto">
+       <a href="products.html" class=" btn add-to-cart-btn mx-auto">
               افزودن به سبد خرید
        </a>
 </div>
