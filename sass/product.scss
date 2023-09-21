@@ -53,11 +53,19 @@ body{
     background: linear-gradient(135deg,royalblue,rgb(37, 88, 189));
   }
 }
+.ordered-size{
+  transform: scale(1.25) !important;
+  background: linear-gradient(145deg,royalblue,rgb(37, 88, 189)) !important;
+}
 .add-to-cart-btn{
-  padding: 1vh 1.5vw !important;
-  border: 0;
-  font-weight: 500;
-  color: #fff;
-  border-radius: .7rem;
-  background: linear-gradient(135deg,royalblue,rgb(37, 88, 189));
+padding: 1vh 1.5vw !important;
+border: 0;
+font-weight: 500;
+color: #fff;
+border-radius: .7rem;
+background: linear-gradient(135deg,royalblue,rgb(37, 88, 189));
+&:hover{
+  background: linear-gradient(135deg,rgb(65, 225, 110),rgb(37, 88, 189));
+  color: #f1f1f1;
+}
 }

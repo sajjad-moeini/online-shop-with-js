@@ -64,6 +64,11 @@ body {
   background: linear-gradient(135deg, royalblue, #2558bd);
 }
 
+.ordered-size {
+  transform: scale(1.25) !important;
+  background: linear-gradient(145deg, royalblue, #2558bd) !important;
+}
+
 .add-to-cart-btn {
   padding: 1vh 1.5vw !important;
   border: 0;
@@ -71,4 +76,9 @@ body {
   color: #fff;
   border-radius: .7rem;
   background: linear-gradient(135deg, royalblue, #2558bd);
+}
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(135deg, #41e16e, #2558bd);
+  color: #f1f1f1;
 }

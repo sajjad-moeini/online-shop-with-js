@@ -279,9 +279,9 @@ footer {
   font-weight: 600;
   color: #fff;
 }
-.size-box-container:hover {
-  transform: scale(1.2);
-  background: linear-gradient(135deg, royalblue, rgb(37, 88, 189));
+.ordered-size, .size-box-container:hover {
+  transform: scale(1.25) !important;
+  background: linear-gradient(145deg, royalblue, rgb(37, 88, 189)) !important;
 }
 
 .add-to-cart-btn {
@@ -291,6 +291,10 @@ footer {
   color: #fff;
   border-radius: 0.7rem;
   background: linear-gradient(135deg, royalblue, rgb(37, 88, 189));
+}
+.add-to-cart-btn:hover {
+  background: linear-gradient(135deg, rgb(65, 225, 110), rgb(37, 88, 189));
+  color: #f1f1f1;
 }
 
 @media screen and (max-width: 1200px) {

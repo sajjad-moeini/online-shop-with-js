@@ -248,6 +248,7 @@ footer{
   width: 90%;
   margin: 4vh auto !important;
 }
+
 .size-box-container{
   width: 50px;
   height: 50px;
@@ -264,18 +265,10 @@ footer{
     color: #fff;
   }
   &:hover{
-    transform: scale(1.2);
-    background: linear-gradient(135deg,royalblue,rgb(37, 88, 189));
+   @extend .ordered-size
   }
 }
-.add-to-cart-btn{
-  padding: 1vh 1.5vw !important;
-  border: 0;
-  font-weight: 500;
-  color: #fff;
-  border-radius: .7rem;
-  background: linear-gradient(135deg,royalblue,rgb(37, 88, 189));
-}
+
 //////////////// product modal finish
 
 @media screen and (max-width:1200px) {
