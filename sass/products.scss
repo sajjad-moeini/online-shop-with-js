@@ -99,7 +99,40 @@ ul{list-style: none;}
               margin-right: -5vw !important;
               margin-bottom: 1vh !important;
        }
-
+       .cart-icon-container{
+              justify-content: flex-end;
+       }
+       .userInformation-container{
+              position: relative !important;
+              &:hover{
+                     .userInformation{
+                            top: 110% !important;
+                     }  
+              }
+       } 
+       .userInformation{
+              position: absolute !important;
+              width: 110%;
+              top: -1110%;
+              right: 30% !important;
+              transition: all .5s;
+              border-radius: 1vw !important;
+              background-color: royalblue;
+              overflow: hidden;
+              ul{
+                     width: 100%;
+                    padding: 0 !important;
+                     li{
+                            font-size: 1.2rem !important;
+                            padding: 1.5vh;
+                            text-align: start;
+                            &:hover{
+                                   background: linear-gradient(140deg,rgb(83, 176, 234),rgb(146, 240, 146));
+                            }
+                            
+                     }
+              }
+       }
 ///////////////////////////////// navbar finish
 ///////////////////////////////// main start
 main{
@@ -217,57 +250,6 @@ footer{
 }
 
 //////////////// product modal start
-.product-container{
-       background: #555;
-} 
- .about-product-container{
-  background: linear-gradient(135deg,lightskyblue,gray);
-  box-shadow: 0px 0px 10px 1px white;
-  border-radius: 1.5vw;
-  color: #fff;
-}
-.product-lg-img{
-  cursor: pointer;
-  transition: all .5s;
-  &:hover{
-    transform: scale(1.1);
-    border-radius: 2vw !important;
-  }
-}
-.sm-img-container{
-  height: 10vh !important;
-  overflow: hidden !important;
-  margin-top: 2vh !important;
-  margin-left: 1vw !important;
-  img{
-    height: 100%;
-    cursor: pointer;
-  }
-}
-.sizes-container{
-  width: 90%;
-  margin: 4vh auto !important;
-}
-
-.size-box-container{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg,lightskyblue,gray);
-  display: flex;
-  justify-content: center !important;
-  align-items: center !important;
-  cursor: pointer;
-  transition: all .5s;
-  span{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-  }
-  &:hover{
-   @extend .ordered-size
-  }
-}
 
 //////////////// product modal finish
 

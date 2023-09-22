@@ -1,6 +1,7 @@
 let users = [
        {
-              fnameLname:'sajjad moeini',
+              fname:'سجاد  ',
+              lastName:'معینی',
               username:'sajjad-rad',
               password:'12345678',
               email:'sajjadmoeini97@gmail.com'

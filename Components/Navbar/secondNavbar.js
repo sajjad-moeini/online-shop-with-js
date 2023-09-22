@@ -1,16 +1,55 @@
+import store from "../../store/store.js"
+let isLogin = null
+let userName = store.getState().users[0].fname;
+console.log(userName);
+
+if(JSON.parse(localStorage.getItem('isLogin'))){
+  isLogin = true;
+}else{
+  isLogin = false;
+      
+}   
+
 function secondNavbar(){
      let secondNavbarContainer =  document.createElement('section')
-     secondNavbarContainer.innerHTML=`
+     if(isLogin){
+  
+     }
+    secondNavbarContainer.innerHTML=`
      <nav class="navbar second-nav">
      <div class="row w-100">
             <div class="col-6 col-md-4">
                    <div class="row w-100">
-                          <div class="h3 col-9 ms-2 d-flex-centering text-light account-nav-item cp"
-                          data-bs-toggle="modal"
-                          data-bs-target="#loginRegisterModal">
-                                 حساب کاربری
-                          </div>
-                          <div class=" col-2 d-flex-centering text-light  cp cart-icon-container">
+                   ${isLogin ? `
+                   <div class="h3 col-9 ms-1 d-flex-centering text-light account-nav-item cp position-relative userInformation-container"
+                  >
+                سلام ${userName} 
+                <div class="userInformation position-absolute">
+                <ul>
+                  <li><a>
+                  اطلاعات کاربری
+                  </a></li>
+                  <li><a>
+                  سابقه خرید
+                  </a></li>
+                  <li><a>
+                  علاقه مندی ها
+                  </a></li>
+                  <li class='logOut-btn'><a>
+                  خروج
+                  </a></li>
+                </ul>
+                </div>
+                   </div>
+                   `:`
+                   <div class="h3 col-9 ms-2 d-flex-centering text-light account-nav-item cp"
+                   data-bs-toggle="modal"
+                   data-bs-target="#loginRegisterModal">
+                حساب کاربری
+                   </div>
+                   `}
+                        
+                          <div class=" col-3 d-flex-centering text-light  cp cart-icon-container ">
                                  <i class="fa fa-cart-arrow-down fs-3 cart-icon"></i>
                           </div>
 
@@ -38,12 +77,12 @@ function secondNavbar(){
       <label for="username-login-item" class="text-light">
              نام کاربری :
       </label>
-      <input type="text" id="username-login-item" class="form-control" placeholder="نام کاربری خود را وارد کنید">
+      <input type="text" value="sajjad-rad" id="username-login-item" class="form-control" placeholder="نام کاربری خود را وارد کنید">
       <br>
-      <label for="password-login-item" class="text-light">
+      <label for="password-login-item" class="text-light" >
              پسورد :
       </label>
-      <input type="password" id="password-login-item"  class="form-control mt-3" placeholder="پسورد خود را وارد کنید">
+      <input type="password" id="password-login-item"  class="form-control mt-3" value="12345678" placeholder="پسورد خود را وارد کنید">
       <span class="form-text text-danger cp"
       data-bs-toggle="modal"
                           data-bs-target="#RegisterModal">
@@ -53,7 +92,7 @@ function secondNavbar(){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
-        <button type="button" class="btn btn-primary ms-3">ورود </button>
+        <button type="button" class="btn btn-primary ms-3 login-btn">ورود </button>
       </div>
     </div>
   </div>
@@ -88,8 +127,12 @@ function secondNavbar(){
   </div>
 </div>
      `
+
+     
+  
      return secondNavbarContainer.innerHTML
 }
+
 export default secondNavbar
 
 

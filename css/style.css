@@ -445,4 +445,38 @@ footer {
 
 .modal-dialog {
   border-radius: 1.5vw !important;
+}
+
+.cart-icon-container {
+  justify-content: flex-end;
+}
+
+.userInformation-container:hover .userInformation {
+  top: 110% !important;
+}
+
+.userInformation {
+  width: 110%;
+  top: -1110%;
+  right: 30% !important;
+  transition: all 0.5s;
+  border-radius: 1vw !important;
+  background-color: royalblue;
+  overflow: hidden;
+}
+.userInformation ul {
+  width: 100%;
+  padding: 0 !important;
+}
+.userInformation ul li {
+  width: 100%;
+  padding: 1.5vh 1vw;
+}
+.userInformation ul li a {
+  width: 100% !important;
+  font-size: 1.2rem !important;
+  text-align: start;
+}
+.userInformation ul li:hover {
+  background: linear-gradient(140deg, rgb(83, 176, 234), rgb(146, 240, 146));
 }/*# sourceMappingURL=style.css.map */

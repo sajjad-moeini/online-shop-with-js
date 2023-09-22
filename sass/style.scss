@@ -471,3 +471,40 @@ footer{
 .modal-dialog{
        border-radius: 1.5vw !important;
 }
+.cart-icon-container{
+       justify-content: flex-end;
+}
+.userInformation-container{
+       &:hover{
+              .userInformation{
+                     top: 110% !important;
+              }  
+       }
+}
+.userInformation{
+       width: 110%;
+       top: -1110%;
+       right: 30% !important;
+       transition: all .5s;
+       border-radius: 1vw !important;
+       background-color: royalblue;
+       overflow: hidden;
+       ul{
+              width: 100%;
+             padding: 0 !important;
+              li{
+                     width: 100%;
+                     padding: 1.5vh 1vw;
+                     a{
+                            width: 100% !important;
+                            font-size: 1.2rem !important;
+                            text-align: start;
+                     }
+                     &:hover{
+                            background: linear-gradient(140deg,rgb(83, 176, 234),rgb(146, 240, 146));
+                    
+                     
+                     
+              }
+       }
+}}

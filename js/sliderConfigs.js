@@ -47,5 +47,5 @@ window.addEventListener('load', (event) => {
 })
 window.addEventListener('resize', (event) => {
        chooseSliderSlideCount(document.body.scrollWidth)
-       location.href(0)
+    history.go(0)
 })

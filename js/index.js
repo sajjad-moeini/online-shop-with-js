@@ -13,7 +13,6 @@ let topSellerSlider = document.querySelector('.swiper-items-container-top-saled'
 let newProductsSlider = document.querySelector('.swiper-items-container-new-products')
 
 let allInf = store.getState()
-
 let navBar = allInf.navbar
 let nav = navBar.mainPageNavbarItems
 let logo =navBar.logo
