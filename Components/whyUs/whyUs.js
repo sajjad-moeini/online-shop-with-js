@@ -1,5 +1,5 @@
-import allInformations from "../../pages/informations.js";
-
+import store from "../../store/store.js";
+let allInf = store.getState()
 
 function whyUsBoxesGenrator({ imageSrc, sectionTitle, sectionSubTitles }) {
        let i = -1
@@ -31,12 +31,12 @@ function whyUs() {
        <div class="why-us">
        <div class="sections-title d-flex-centering">
        <h1 >
-${allInformations.whyUs.title}
+${allInf.whyUsSection.title}
        </h1>
        </div>
        <div class="why-us-boxes">
 
-             ${whyUsBoxesGenrator(allInformations.whyUs)}
+             ${whyUsBoxesGenrator(allInf.whyUsSection)}
 
            </div>
          </div>

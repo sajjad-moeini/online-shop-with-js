@@ -1,12 +1,11 @@
-import allInformations from "../../pages/informations.js";
-
-
+import store from "../../store/store.js";
+let allInf = store.getState()
 
 
 function footerSecondUl() {
        let container = document.createElement('div')
        let i = -1
-       let { hrefs, logos, titles } = allInformations.footerSecondUl
+       let { hrefs, logos, titles } = allInf.footer.footerSecondUl
        let companysBoxCodes = titles.map(title => {
               i++
               return (`

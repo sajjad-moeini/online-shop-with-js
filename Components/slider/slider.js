@@ -1,8 +1,3 @@
-import allInformations from "../../pages/informations.js";
-
-
-
-
 function sliderItemCreator({ imageSrc, productsTitle, prices }) {
   let i = -1
   let sliderItems = imageSrc.map(image => {

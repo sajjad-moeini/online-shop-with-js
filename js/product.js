@@ -1,9 +1,11 @@
-import allInformations from "../pages/informations.js"
+import store from "../store/store.js"
 
+let allInf = store.getState()
 let productId = Number(location.search.slice(1))
 
-let product = allInformations.products[0].filter(product=>{return product.id == productId})[0]
-console.log(product);
+let product = allInf.products[0].filter(product=>{return product.id == productId})[0]
+
+document.title = product.name
 
 document.body.insertAdjacentHTML('beforeend',`
 <div class="product-container p-3">

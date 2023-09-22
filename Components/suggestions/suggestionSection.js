@@ -1,5 +1,6 @@
-import allInformations from "../../pages/informations.js";
-let suggestionInform = allInformations.suggestSection
+import store from "../../store/store.js";
+let allInf = store.getState()
+let suggestionInform = allInf.suggestionSection
 function suggestionSection(){
        let suggestionContainer =document.createElement('section')
        let i =-1

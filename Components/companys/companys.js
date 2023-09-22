@@ -1,7 +1,3 @@
-import allInformations from "../../pages/informations.js";
-
-
-
 
 function companys(srcs) {
        let container = document.createElement('div')

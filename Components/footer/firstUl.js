@@ -1,12 +1,11 @@
-import allInformations from "../../pages/informations.js";
-
-
+import store from "../../store/store.js";
+let allInf = store.getState()
 
 
 function footerFirstUl() {
        let container = document.createElement('div')
 
-       let companysBoxCodes = allInformations.footerFirstUl.titles.map(title => {
+       let companysBoxCodes = allInf.footer.footerFirstUl.titles.map(title => {
               if (title == 'آنلاین شاپ') {
                      return (`
               <li class="mt-2">

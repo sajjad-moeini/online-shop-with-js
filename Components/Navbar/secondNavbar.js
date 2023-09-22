@@ -67,18 +67,18 @@ function secondNavbar(){
         <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
       </div>
       <div class="modal-body">
-      <input type="text" id="username-login-item" class="form-control mt-4" placeholder="نام و نام خانوادگی خود را وارد کنید">
+      <input type="text" id="nameAndFamily-login-item" class="form-control mt-4" placeholder="نام و نام خانوادگی خود را وارد کنید">
       
-      <input type="text" id="username-login-item" class="form-control mt-4" placeholder="نام کاربری خود را انتخاب کنید">
+      <input type="text" id="username-order-login-item" class="form-control mt-4" placeholder="نام کاربری خود را انتخاب کنید">
       <span class="text-danger">
       نام کاربری باید بین 6 تا 20 کاراکتر داشته باشد
       </span>
-      <input type="text" id="username-login-item" class="form-control mt-2" placeholder="ایمیل خود را وارد کنید">
-     <input type="text" id="username-login-item" class="form-control mt-4" placeholder="رمز عبور خود را وارد کنید">
+      <input type="text" id="email-login-item" class="form-control mt-2" placeholder="ایمیل خود را وارد کنید">
+     <input type="text" id="password-login-item" class="form-control mt-4" placeholder="رمز عبور خود را وارد کنید">
      <span class="text-danger">
      رمز عبور باید بین 8 تا 20 کاراکتر داشته باشد
      </span>
-      <input type="text" id="username-login-item" class="form-control mt-2" placeholder="رمز عبور خود را تکرار کنید"></input>
+      <input type="text" id="repassword-login-item" class="form-control mt-2" placeholder="رمز عبور خود را تکرار کنید"></input>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>

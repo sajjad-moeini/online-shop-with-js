@@ -1,7 +1,3 @@
-import allInformations from "../../pages/informations.js"
-
-
-
 function firstNavBar(nav,logo,logoHref) {
        let navbarContainer = document.createElement('section')
        let firstNav = document.createElement('nav')

@@ -1,4 +1,4 @@
-import allInformations from "../pages/informations.js"
+import store from "../store/store.js"
 import firstNavBar from "../Components/Navbar/firstNavbar.js"
 import secondNavbar from "../Components/Navbar/secondNavbar.js"
 import firstOffBox from "../Components/firstOffBox/firstOffBox.js"
@@ -11,8 +11,12 @@ import footerFirstUl from "../Components/footer/firstUl.js"
 import footerSecondUl from "../Components/footer/secondUl.js"
 let topSellerSlider = document.querySelector('.swiper-items-container-top-saled')
 let newProductsSlider = document.querySelector('.swiper-items-container-new-products')
-let nav = allInformations.mainNavbar.mainPageNavbarItems
-let logo =allInformations.mainNavbar.logo
+
+let allInf = store.getState()
+
+let navBar = allInf.navbar
+let nav = navBar.mainPageNavbarItems
+let logo =navBar.logo
 
 ////////////// start insert DOMS html//////////////////
 document.body.insertAdjacentHTML('afterbegin', `
@@ -23,7 +27,7 @@ ${secondNavbar()}
 <div class="header-bg"></div>
 <main>
 <div class="welcome-note h1 text-light text-center pt-5">
-${allInformations.welComeNote.title}
+${allInf.welcomeNote.title}
 </div>
 ${firstOffBox()}
 ${suggestionSection()}
@@ -39,7 +43,7 @@ ${uniqueStyle()}
  ${whyUs()}
  </main>
  <div class="footer-container">
- ${companys(allInformations.companys.imageSrc)}
+ ${companys(allInf.companys.imageSrc)}
  <footer>
         ${footerFirstUl()}      
         ${footerSecondUl()}
@@ -47,10 +51,10 @@ ${uniqueStyle()}
  </div>
 `)
 topSellerSlider.insertAdjacentHTML('afterbegin', `
-${slider(allInformations.topSellersSection)}
+${slider(allInf.topSellersSection)}
 `)
 newProductsSlider.insertAdjacentHTML('afterbegin', `
-${slider(allInformations.newProductsSection)}
+${slider(allInf.newProductsSection)}
 `)
 ////////////// finish insert DOMS html//////////////////
 

@@ -1,15 +1,15 @@
-
-import allInformations from "../pages/informations.js"
+import store from "../store/store.js"
 import firstNavBar from "../Components/Navbar/firstNavbar.js"
 import secondNavbar from "../Components/Navbar/secondNavbar.js"
 import companys from "../Components/companys/companys.js"
 import footerFirstUl from "../Components/footer/firstUl.js"
 import footerSecondUl from "../Components/footer/secondUl.js"
-let nav = allInformations.mainNavbar.sidePageNavbarItems
-let logo = allInformations.mainNavbar.logo
+let allInfs = store.getState()
+let nav = allInfs.navbar.sidePageNavbarItems
+let logo = allInfs.navbar.logo
 
 
-let productsContainer = allInformations.products[0]
+let productsContainer = allInfs.products[0]
 
 
 function productsLoader(products) {
@@ -59,7 +59,7 @@ ${firstNavBar(nav, logo, "../index.html")}
        <div class="row">
               <select name="" id="" class="form-control-sm col-md-4 mt-4 mx-auto allCategory">
                      <option value="-1">دسته بندی مورد نظر را انتخاب کنید</option>
-                ${allInformations.categorys.map(category => {
+                ${allInfs.category.productCategorys.map(category => {
        return (`
                             <option value=${category.value}>${category.name}</option>
                             `)
@@ -70,7 +70,7 @@ ${firstNavBar(nav, logo, "../index.html")}
                      <option value="-1">
                             مرتب سازی بر اساس ...
                      </option>
-                     ${allInformations.productTypeCategory.map(category => {
+                     ${allInfs.category.productTypeCategory.map(category => {
               return (`
                                    <option value=${category.value}>${category.name}</option>
                                    `)
@@ -87,7 +87,7 @@ ${productsLoader(productsContainer)
 </div>
 </main>
 <div class="footer-container">
-${companys(allInformations.companys.sidePageImgSrc)}
+${companys(allInfs.companys.sidePageImgSrc)}
 <footer>
        ${footerFirstUl()}      
        ${footerSecondUl()}
@@ -110,7 +110,7 @@ allSortingSelectBoxElem.addEventListener('change', (e) => {
 
 function categoryChangeHandler(category, action) {
        if (action == 'category') {
-              let filtredProducts = allInformations.products[0].filter(product => product.category == category)
+              let filtredProducts = allInfs.products[0].filter(product => product.category == category)
               let productsContainerElem = document.querySelector('.cards-container')
               productsContainerElem.innerHTML = ''
               productsContainerElem.innerHTML = `${productsLoader(filtredProducts)}`
