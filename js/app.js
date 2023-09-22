@@ -69,6 +69,9 @@ searchbar.addEventListener('keyup', (e) => {
            
 `
 })
-searchbar.addEventListener('blur',()=>{
+document.body.addEventListener('click',()=>{
        searchResultsContainer.style.display='none'
+})
+searchbar.addEventListener('blur',()=>{
+     
 })

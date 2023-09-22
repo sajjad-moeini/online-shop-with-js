@@ -487,7 +487,6 @@ footer {
 
 .search-results-container {
   width: 100%;
-  height: 10vh;
   background-color: rgba(219, 228, 230, 0.5490196078);
   top: 100%;
   border-radius: 1.2vw;
@@ -499,9 +498,14 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.5s;
 }
 .search-result .h5 {
   padding-right: 2vw !important;
   margin-top: 0.5vh;
   color: #1a1818;
+}
+.search-result:hover {
+  background-color: rgba(136, 136, 136, 0.5725490196);
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */
