@@ -249,9 +249,31 @@ footer{
        border-radius: 1.5vw !important;
 }
 
-//////////////// product modal start
-
-//////////////// product modal finish
+.search-results-container{
+       width: 100%;
+       background-color: #dbe4e68c;
+       top: 100%;
+       border-radius: 1.2vw;
+       display: none;
+       overflow: hidden;
+}
+.search-result{
+       width: 100%;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       transition: all .5s;
+       
+       .h5{
+              padding-right: 2vw !important;
+              margin-top: .5vh;
+              color: #1a1818;
+       }
+       &:hover{
+              background-color: #88888892;
+              color: #fff;
+       }
+}
 
 @media screen and (max-width:1200px) {
        .cart-icon-container{

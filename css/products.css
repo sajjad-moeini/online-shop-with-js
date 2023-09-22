@@ -261,6 +261,32 @@ footer {
   border-radius: 1.5vw !important;
 }
 
+.search-results-container {
+  width: 100%;
+  background-color: rgba(219, 228, 230, 0.5490196078);
+  top: 100%;
+  border-radius: 1.2vw;
+  display: none;
+  overflow: hidden;
+}
+
+.search-result {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s;
+}
+.search-result .h5 {
+  padding-right: 2vw !important;
+  margin-top: 0.5vh;
+  color: #1a1818;
+}
+.search-result:hover {
+  background-color: rgba(136, 136, 136, 0.5725490196);
+  color: #fff;
+}
+
 @media screen and (max-width: 1200px) {
   .cart-icon-container {
     margin-right: 0 !important;
