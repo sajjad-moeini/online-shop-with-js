@@ -12,7 +12,8 @@ import companysReducer from "./companys/companys.js";
 import footerReducer from "./footer/footer.js";
 import categoryReducer from "./categories/categories.js";
 import firstOffBoxReducer from "./firstOffBox/firstOffBox.js";
-
+import userReducer from "./users/users.js";
+import isLoginReducer from "./userIsLogin/userIsLogin.js";
 let store = Redux.createStore(Redux.combineReducers({
        products: productReducer,
        navbar:navbarReducer,
@@ -27,7 +28,9 @@ let store = Redux.createStore(Redux.combineReducers({
        whyUsSection: whyUsSectionReducer,
        companys: companysReducer,
        footer: footerReducer,
-       category: categoryReducer
+       category: categoryReducer,
+       users: userReducer,
+       isLogin : isLoginReducer
 
 }))
 
