@@ -67,6 +67,10 @@ ul {
   height: 10%;
 }
 
+.w-10 {
+  width: 10%;
+}
+
 .h-90 {
   height: 90%;
 }
@@ -479,4 +483,25 @@ footer {
 }
 .userInformation ul li:hover {
   background: linear-gradient(140deg, rgb(83, 176, 234), rgb(146, 240, 146));
+}
+
+.search-results-container {
+  width: 100%;
+  height: 10vh;
+  background-color: rgba(219, 228, 230, 0.5490196078);
+  top: 100%;
+  border-radius: 1.2vw;
+  display: none;
+}
+
+.search-result {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-result .h5 {
+  padding-right: 2vw !important;
+  margin-top: 0.5vh;
+  color: #1a1818;
 }/*# sourceMappingURL=style.css.map */

@@ -1,7 +1,6 @@
 import store from "../../store/store.js"
 let isLogin = null
 let userName = store.getState().users[0].fname;
-console.log(userName);
 
 if(JSON.parse(localStorage.getItem('isLogin'))){
   isLogin = true;
@@ -56,11 +55,14 @@ function secondNavbar(){
                    </div>
             </div>
             <div class="col-5 col-md-4 ms-auto">
-                   <form class="d-flex" role="search">
-                          <input class="form-control " type="search" placeholder="جستجو کنید ... ">
+                   <form class="d-flex position-relative searchbar-container" role="search">
+                          <input class="form-control searchbar" type="search" placeholder="جستجو کنید ... ">
                           <button class="btn  navbar-search-btn" type="submit">
                                  <i class="fa fa-search"></i>
                           </button>
+                          <div class="search-results-container position-absolute">
+ </div>
+
                    </form>
             </div>
      </div>
