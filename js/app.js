@@ -93,15 +93,40 @@ document.body.addEventListener('click',()=>{
 
 
 addToCartBtn.addEventListener('click',(e)=>{
-       sizesBtns.forEach(btn=>{
-              if(btn.classList.contains('ordered-size')){
-                     let orderedPR = {
-                            id:e.target.dataset.productid,
-                            size:Number(btn.querySelector('span').innerHTML),
-                            count:btn.querySelector('input').value
-                     } 
-                     customerCart.push(orderedPR)
+       if(JSON.parse(localStorage.getItem('isLogin'))){
+              let isOrder = false
+              let isValidCount = false
+              sizesBtns.forEach(btn=>{
+                     if(btn.classList.contains('ordered-size')){
+                            isOrder = true
+                            let orderedPR = {
+                                   id:e.target.dataset.productid,
+                                   size:Number(btn.querySelector('span').innerHTML),
+                                   count:btn.querySelector('input').value
+                            } 
+                            if(orderedPR.count){
+                                   isValidCount=true
+                                   customerCart.push(orderedPR)
+                            }
+                     }
+              })
+              if(isOrder && isValidCount){
+                     localStorage.setItem('cart',JSON.stringify(customerCart))
+              }else{
+                     e.preventDefault()
+                     Swal.fire({
+                            icon: 'error',
+                            title: 'محصولی را انتخاب نکرده اید و یا مقدار برابر صفر است',
+                           
+                          })
               }
-       })
-       localStorage.setItem('cart',JSON.stringify(customerCart))
+       }else{
+              e.preventDefault()
+              Swal.fire({
+                     icon: 'info',
+                     title: 'لطفا وارد حساب کاربری خود شوید',
+                    
+                   })
+       }
+       
 })
