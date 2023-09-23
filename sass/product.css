@@ -46,6 +46,7 @@ body {
 .product-lg-img {
   cursor: pointer;
   transition: all .5s;
+  height: 30vh;
 }
 
 .product-lg-img:hover {
@@ -54,7 +55,7 @@ body {
 }
 
 .sm-img-container {
-  height: 25vh !important;
+  height: 10vh !important;
   overflow: hidden !important;
   margin-top: 2vh !important;
   margin-left: 1vw !important;
@@ -110,4 +111,11 @@ body {
 .add-to-cart-btn:hover {
   background: linear-gradient(135deg, #41e16e, #2558bd);
   color: #f1f1f1;
+}
+
+.size-count {
+  width: 60%;
+  top: -20%;
+  right: 0;
+  height: 3vh;
 }

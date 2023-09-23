@@ -7,7 +7,19 @@ let cartIconElem = document.querySelector('.cart-icon')
 let searchbarContainer = document.querySelector('.searchbar-container')
 let searchbar = document.querySelector('.searchbar')
 let searchResultsContainer =document.querySelector('.search-results-container')
+let addToCartBtn = document.querySelector('.add-to-cart-btn')
+let sizesBtns = document.querySelectorAll('.size-box-container')
 
+let customerCart =[]
+
+window.onload =()=>{
+       if(JSON.parse(localStorage.getItem('cart'))){
+              customerCart = [... JSON.parse(localStorage.getItem('cart'))]
+             cartIconElem.style.animation ='cartAnimation 2s infinite alternate'
+
+
+       }
+}
 if (loginBtn) {
        loginBtn.addEventListener('click', (e) => {
               store.dispatch({ type: 'CHANGEisLOGIN' })
@@ -21,57 +33,75 @@ if (logOutBtn) {
               location.href = location.href
        })
 }
-
-cartIconElem.addEventListener('click', () => {
-       if (JSON.parse(localStorage.getItem('isLogin'))) {
-              if (JSON.parse(localStorage.getItem('cart'))) {
-                     //
+if(cartIconElem){
+       cartIconElem.addEventListener('click', () => {
+              if (JSON.parse(localStorage.getItem('isLogin'))) {
+                     if (JSON.parse(localStorage.getItem('cart'))) {
+                            //
+                     } else {
+                            Swal.fire({
+                                   icon: 'warning',
+                                   title: 'سبد خرید شما خالی است',
+                            })
+                     }
               } else {
                      Swal.fire({
-                            icon: 'warning',
-                            title: 'سبد خرید شما خالی است',
+                            icon: 'info',
+                            title: 'لطفا وارد حساب کاربری خود شوید',
                      })
               }
-       } else {
-              Swal.fire({
-                     icon: 'info',
-                     title: 'لطفا وارد حساب کاربری خود شوید',
+       })
+       
+}
+if(searchbar){
+       searchbar.addEventListener('keyup', (e) => {
+              searchResultsContainer.style.display = 'block'
+              let filtredProductCodes =null
+              let products = store.getState().products[0]
+              let filtredProducts = []
+              products.map(product => {
+                     if (product.name.includes(String(e.target.value))) {
+                            filtredProducts.push(product)                
+                     }
               })
+              filtredProductCodes = filtredProducts.map(product => {
+                     return (`
+              <a href="pages/product.html?${product.id}">
+                                 <div class="search-result w-100">
+                                 <div class="h5">
+                                 ${product.name}</div>
+                                 <img src=${product.mainImgSrc} class="img-fluid w-10" alt="">
+                                 </div>
+                                 </a>
+              `)
+              }).join('')
+             
+              searchResultsContainer.innerHTML = `
+              
+                   
+                     ${filtredProductCodes}
+                  
+       `
+       })
+}
+
+document.body.addEventListener('click',()=>{
+       if(searchResultsContainer){
+              searchResultsContainer.style.display='none'
        }
 })
 
-searchbar.addEventListener('keyup', (e) => {
-       searchResultsContainer.style.display = 'block'
-       let filtredProductCodes =null
-       let products = store.getState().products[0]
-       let filtredProducts = []
-       products.map(product => {
-              if (product.name.includes(String(e.target.value))) {
-                     filtredProducts.push(product)                
+
+addToCartBtn.addEventListener('click',(e)=>{
+       sizesBtns.forEach(btn=>{
+              if(btn.classList.contains('ordered-size')){
+                     let orderedPR = {
+                            id:e.target.dataset.productid,
+                            size:Number(btn.querySelector('span').innerHTML),
+                            count:btn.querySelector('input').value
+                     } 
+                     customerCart.push(orderedPR)
               }
        })
-       filtredProductCodes = filtredProducts.map(product => {
-              return (`
-       <a href="pages/product.html?${product.id}">
-                          <div class="search-result w-100">
-                          <div class="h5">
-                          ${product.name}</div>
-                          <img src=${product.mainImgSrc} class="img-fluid w-10" alt="">
-                          </div>
-                          </a>
-       `)
-       }).join('')
-      
-       searchResultsContainer.innerHTML = `
-       
-            
-              ${filtredProductCodes}
-           
-`
-})
-document.body.addEventListener('click',()=>{
-       searchResultsContainer.style.display='none'
-})
-searchbar.addEventListener('blur',()=>{
-     
+       localStorage.setItem('cart',JSON.stringify(customerCart))
 })

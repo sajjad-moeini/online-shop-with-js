@@ -18,7 +18,7 @@ document.body.insertAdjacentHTML('beforeend',`
 </a>
 
 </div>
-       <div class="col-12 col-md-4 product-pics-container p-5">
+       <div class="col-12 col-md-4 product-pics-container  px-5">
               <img src=../${product.mainImgSrc}
                      class="w-100 img-fluid product-lg-img rounded-3" alt="">
               <div class="row">
@@ -32,7 +32,7 @@ document.body.insertAdjacentHTML('beforeend',`
               }).join('')}
               </div>
        </div>
-       <div class="col-12 col-md-8 p-md-5 ">
+       <div class="col-12 col-md-8 px-md-5 ">
               <div class="row">
                      <div class="h1">
 ${product.name}
@@ -45,7 +45,7 @@ ${product.name}
                      </p>
 
               </div>
-              <div className="price h1 mt-auto ">
+              <div class="price h3 mt-auto ">
               قیمت :
               ${product.price} تومان
               </div>
@@ -59,31 +59,39 @@ ${product.name}
        سایز های موجود :
 </div>
 <div class="d-flex flex-wrap sizes-container">
-       <div class="size-box-container">
-              <span>7</span>
-       </div>
-       <div class="size-box-container">
+       <div class="size-box-container position-relative">
               <span>32</span>
+              <input type="number" placeholder="0" data-size="32" class="size-count position-absolute"/>
        </div>
-       <div class="size-box-container">
+       <div class="size-box-container position-relative">
               <span>34</span>
+              <input type="number" placeholder="0" data-size="34" class="size-count position-absolute"/>
        </div>
-       <div class="size-box-container">
+       <div class="size-box-container position-relative">
               <span>36</span>
+              <input type="number" placeholder="0" data-size="36" class="size-count position-absolute"/>
        </div>
-       <div class="size-box-container">
+       <div class="size-box-container position-relative">
               <span>38</span>
+              <input type="number" placeholder="0" data-size="38" class="size-count position-absolute"/>
        </div>
-       <div class="size-box-container">
+       <div class="size-box-container position-relative">
               <span>40</span>
+              <input type="number" placeholder="0" data-size="40" class="size-count position-absolute"/>
        </div>
-       <div class="size-box-container">
+       <div class="size-box-container position-relative">
               <span>42</span>
+              <input type="number" placeholder="0" data-size="42" class="size-count position-absolute"/>
        </div>
+       <div class="size-box-container position-relative">
+              <span>44</span>
+              <input type="number" placeholder="0" data-size="44" class="size-count position-absolute"/>
+       </div>
+     
 </div>
 
 <div class="w-100 d-flex d-flex-centering">
-       <a href="products.html" class=" btn add-to-cart-btn mx-auto">
+       <a href="./products.html" data-productId=${product.id} class=" btn add-to-cart-btn mx-auto">
               افزودن به سبد خرید
        </a>
 </div>

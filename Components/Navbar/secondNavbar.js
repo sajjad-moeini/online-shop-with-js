@@ -49,7 +49,14 @@ function secondNavbar(){
                    `}
                         
                           <div class=" col-3 d-flex-centering text-light  cp cart-icon-container ">
-                                 <i class="fa fa-cart-arrow-down fs-3 cart-icon"></i>
+                                 <i class="fa fa-cart-arrow-down fs-3 cart-icon position-relative">
+                                 ${JSON.parse(localStorage.getItem('cart')) ? `
+                                 <span class="position-absolute cart-badge d-flex-centering">
+                                 ${JSON.parse(localStorage.getItem('cart')).length}
+                                 </span>
+                                 ` : ``}
+                                
+                                 </i>
                           </div>
 
                    </div>
