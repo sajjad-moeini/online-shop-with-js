@@ -85,7 +85,9 @@ if(searchbar){
        })
 }
 if(searchbarContainer){
-       searchbarContainer.addEventListener('click',e=>{e.target.preventDefault()})
+       searchbarContainer.addEventListener('submit',(e)=>{
+              e.target.preventDefault()
+       })
 }
 document.body.addEventListener('click',(e)=>{
        if(searchResultsContainer){
