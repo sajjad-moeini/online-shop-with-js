@@ -85,9 +85,11 @@ if(searchbar){
        })
 }
 
-document.body.addEventListener('click',()=>{
+document.body.addEventListener('click',(e)=>{
        if(searchResultsContainer){
-              searchResultsContainer.style.display='none'
+              if(e.target !== searchbar){
+                     searchResultsContainer.style.display='none'
+              }
        }
 })
 
