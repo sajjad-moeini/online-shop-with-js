@@ -24,9 +24,11 @@ function suggestionSection(){
        })
 
        suggestionContainer.innerHTML =`
+       <a href="pages/products.html">
        <div class="suggest row">
        ${innerCodes.join('')}
        </div>
+       <a/>
        `
 
 return suggestionContainer.innerHTML

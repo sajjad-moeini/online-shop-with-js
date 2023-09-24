@@ -1,28 +1,51 @@
-function sliderItemCreator({ imageSrc, productsTitle, prices }) {
+function sliderItemCreator(products) {
   let i = -1
-  let sliderItems = imageSrc.map(image => {
-    i++
-    return `
-<div class="swiper-slide me-4">
+//   let sliderItems = imageSrc.map(image => {
+//     i++
+//     return `
+// <div class="swiper-slide me-4">
+// <div class=" h-100 w-100">
+//        <img src=${image} class="img-fluid" alt="img3/1">
+//        <div class="box-details">
+//               <h3>
+//                      ${productsTitle[i]}
+//               </h3>
+//               <div class="d-flex">
+//                      <h5 class="top-seller-box-price">
+//                             ${prices[i].toLocaleString()}  تومان
+//                      </h5>
+//                      <button>
+//                             مشاهده
+//                      </button>
+//               </div>
+
+//        </div>
+// </div>
+// </div>`
+//   })
+let sliderItems = products.map(product=>{
+       return (`
+       <div class="swiper-slide me-4">
 <div class=" h-100 w-100">
-       <img src=${image} class="img-fluid" alt="img3/1">
+       <img src=${product.mainImgSrc} class="img-fluid" alt="img3/1">
        <div class="box-details">
               <h3>
-                     ${productsTitle[i]}
+                     ${product.name}
               </h3>
               <div class="d-flex">
                      <h5 class="top-seller-box-price">
-                            ${prices[i].toLocaleString()}  تومان
+                            ${product.price.toLocaleString()}  تومان
                      </h5>
-                     <button>
+                     <a class="btn" href="pages/product.html?${product.id}">
                             مشاهده
-                     </button>
+                     </a>
               </div>
 
        </div>
 </div>
-</div>`
-  })
+</div>
+       `)
+})
   return sliderItems.join('')
 }
 

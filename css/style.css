@@ -231,17 +231,17 @@ main {
 .unique-style-container h1 {
   color: #fff;
 }
-.unique-style-container button {
+.unique-style-container a {
   font-size: 1rem;
   padding: 0.7vh 1vw !important;
   border: 0;
   border-radius: 0.5vw;
   background-color: #48b0c7;
-  color: #fff;
+  color: #fff !important;
   transition: all 0.5s;
   cursor: pointer;
 }
-.unique-style-container button:hover {
+.unique-style-container a:hover {
   background-color: #1c768a;
 }
 
@@ -431,7 +431,7 @@ footer {
 .box-details .d-flex h5 {
   margin-right: -5% !important;
 }
-.box-details .d-flex button {
+.box-details .d-flex a {
   font-size: 1rem;
   background-color: #48b0c7;
   padding: 0.8vh 1vw;
@@ -441,7 +441,7 @@ footer {
   cursor: pointer;
   transition: all 0.5s;
 }
-.box-details .d-flex button:hover {
+.box-details .d-flex a:hover {
   background-color: #1c768a;
 }
 .box-details h3 {

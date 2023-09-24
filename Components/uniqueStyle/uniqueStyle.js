@@ -9,9 +9,9 @@ function uniqueStyle() {
               <h1>
 ${allInf.uniqueStyle.title}
               </h1>
-              <button>
+              <a href="pages/products.html">
                      ${allInformations.uniqueStyle.btnTitle} 
-              </button>
+              </a>
        </div>
 
 

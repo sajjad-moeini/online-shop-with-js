@@ -227,13 +227,13 @@ main{
        h1{
               color: #fff;
        }
-       button{
+       a{
               font-size: 1rem;
               padding: .7vh 1vw !important;
               border: 0;
               border-radius: .5vw;
               background-color: #48b0c7;
-              color: #fff;
+              color: #fff !important;
               transition: all .5s;
               cursor: pointer;
               &:hover{
@@ -452,7 +452,7 @@ footer{
                h5{
                       margin-right: -5% !important;
                }
-               button{
+               a{
                       font-size: 1rem;
                       background-color: #48b0c7;
                       padding: .8vh 1vw;

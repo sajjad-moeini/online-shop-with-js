@@ -24,7 +24,14 @@ if (loginBtn) {
        loginBtn.addEventListener('click', (e) => {
               store.dispatch({ type: 'CHANGEisLOGIN' })
               localStorage.setItem('isLogin', JSON.stringify({ value: true }))
-              location.href = location.href
+              Swal.fire({
+                     icon: 'success',
+                     title: 'خوش آمدید',
+                     confirmButtonText:'ممنون'
+              }).then(result=>{
+                     result.isConfirmed && (location.href = location.href)
+              })
+              
        })
 }
 if (logOutBtn) {
@@ -88,6 +95,7 @@ if(searchbarContainer){
        searchbarContainer.addEventListener('submit',(e)=>{
               e.target.preventDefault()
        })
+      
 }
 document.body.addEventListener('click',(e)=>{
        if(searchResultsContainer){

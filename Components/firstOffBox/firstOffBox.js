@@ -11,9 +11,9 @@ firstOffBoxContainer.innerHTML =`
        <p class="first-off-box-subtitle">
             ${allInf.firstOffBox.desc}
        </p>
-       <button class="first-off-box-btn btn  text-light border-light align-self-center">
+       <a href="pages/products.html" class="first-off-box-btn btn  text-light border-light align-self-center">
               ${allInf.firstOffBox.btnTitle}
-       </button>
+       </a>
 </div>
 <div class="col-6 h-100 d-flex-centering ">
        <img src=${allInf.firstOffBox.imageSrc} alt="first-bg" class="img-fluid w-75 first-box-img">
