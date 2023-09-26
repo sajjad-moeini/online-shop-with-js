@@ -1,4 +1,5 @@
 
+import Cart from "../Components/companys/Cart/Cart.js"
 import store from "../store/store.js"
 
 let loginBtn = document.querySelector('.login-btn')
@@ -6,16 +7,16 @@ let logOutBtn = document.querySelector('.logOut-btn')
 let cartIconElem = document.querySelector('.cart-icon')
 let searchbarContainer = document.querySelector('.searchbar-container')
 let searchbar = document.querySelector('.searchbar')
-let searchResultsContainer =document.querySelector('.search-results-container')
+let searchResultsContainer = document.querySelector('.search-results-container')
 let addToCartBtn = document.querySelector('.add-to-cart-btn')
 let sizesBtns = document.querySelectorAll('.size-box-container')
 
-let customerCart =[]
+let customerCart = []
 
-window.onload =()=>{
-       if(JSON.parse(localStorage.getItem('cart'))){
-              customerCart = [... JSON.parse(localStorage.getItem('cart'))]
-             cartIconElem.style.animation ='cartAnimation 2s infinite alternate'
+window.onload = () => {
+       if (JSON.parse(localStorage.getItem('cart'))) {
+              customerCart = [...JSON.parse(localStorage.getItem('cart'))]
+              cartIconElem.style.animation = 'cartAnimation 2s infinite alternate'
 
 
        }
@@ -27,11 +28,11 @@ if (loginBtn) {
               Swal.fire({
                      icon: 'success',
                      title: 'خوش آمدید',
-                     confirmButtonText:'ممنون'
-              }).then(result=>{
+                     confirmButtonText: 'ممنون'
+              }).then(result => {
                      result.isConfirmed && (location.href = location.href)
               })
-              
+
        })
 }
 if (logOutBtn) {
@@ -40,11 +41,32 @@ if (logOutBtn) {
               location.href = location.href
        })
 }
-if(cartIconElem){
+if (cartIconElem) {
+
        cartIconElem.addEventListener('click', () => {
               if (JSON.parse(localStorage.getItem('isLogin'))) {
                      if (JSON.parse(localStorage.getItem('cart'))) {
-                            //
+                            let cartItems = [...JSON.parse(localStorage.getItem('cart'))]
+                            let allProducts = store.getState().products[0]
+                            let orderedProductInfs = []
+                            cartItems.forEach(product => {
+                                    allProducts.forEach(prod => {
+                                          if (Number(product.id == prod.id)) {
+                                                 let productNewInform = {
+                                                        id: prod.id,
+                                                        size: product.size,
+                                                        count: product.count,
+                                                        name: prod.name,
+                                                        imgSrc: prod.mainImgSrc,
+                                                        price:prod.price
+                                                 }
+                                                 orderedProductInfs.push(productNewInform)
+                                          }
+                                   })
+                            })
+                            document.body.insertAdjacentHTML('beforeend',`
+                            ${Cart(orderedProductInfs)}
+                            `)
                      } else {
                             Swal.fire({
                                    icon: 'warning',
@@ -58,17 +80,17 @@ if(cartIconElem){
                      })
               }
        })
-       
+
 }
-if(searchbar){
+if (searchbar) {
        searchbar.addEventListener('keyup', (e) => {
               searchResultsContainer.style.display = 'block'
-              let filtredProductCodes =null
+              let filtredProductCodes = null
               let products = store.getState().products[0]
               let filtredProducts = []
               products.map(product => {
                      if (product.name.includes(String(e.target.value))) {
-                            filtredProducts.push(product)                
+                            filtredProducts.push(product)
                      }
               })
               filtredProductCodes = filtredProducts.map(product => {
@@ -82,7 +104,7 @@ if(searchbar){
                                  </a>
               `)
               }).join('')
-             
+
               searchResultsContainer.innerHTML = `
               
                    
@@ -91,56 +113,66 @@ if(searchbar){
        `
        })
 }
-if(searchbarContainer){
-       searchbarContainer.addEventListener('submit',(e)=>{
+if (searchbarContainer) {
+       searchbarContainer.addEventListener('submit', (e) => {
               e.target.preventDefault()
        })
-      
+
 }
-document.body.addEventListener('click',(e)=>{
-       if(searchResultsContainer){
-              if(e.target !== searchbar){
-                     searchResultsContainer.style.display='none'
+
+document.body.addEventListener('click', (e) => {
+       if (searchResultsContainer) {
+              if (e.target !== searchbar) {
+                     searchResultsContainer.style.display = 'none'
               }
        }
 })
 
 
-addToCartBtn.addEventListener('click',(e)=>{
-       if(JSON.parse(localStorage.getItem('isLogin'))){
+addToCartBtn.addEventListener('click', (e) => {
+       if (JSON.parse(localStorage.getItem('isLogin'))) {
               let isOrder = false
               let isValidCount = false
-              sizesBtns.forEach(btn=>{
-                     if(btn.classList.contains('ordered-size')){
+              sizesBtns.forEach(btn => {
+                     if (btn.classList.contains('ordered-size')) {
                             isOrder = true
                             let orderedPR = {
-                                   id:e.target.dataset.productid,
-                                   size:Number(btn.querySelector('span').innerHTML),
-                                   count:btn.querySelector('input').value
-                            } 
-                            if(orderedPR.count){
-                                   isValidCount=true
+                                   id: e.target.dataset.productid,
+                                   size: Number(btn.querySelector('span').innerHTML),
+                                   count: btn.querySelector('input').value
+                            }
+                            if (orderedPR.count) {
+                                   isValidCount = true
                                    customerCart.push(orderedPR)
                             }
                      }
               })
-              if(isOrder && isValidCount){
-                     localStorage.setItem('cart',JSON.stringify(customerCart))
-              }else{
+              if (isOrder && isValidCount) {
+                     localStorage.setItem('cart', JSON.stringify(customerCart))
+              } else {
                      e.preventDefault()
                      Swal.fire({
                             icon: 'error',
                             title: 'محصولی را انتخاب نکرده اید و یا مقدار برابر صفر است',
-                           
-                          })
+
+                     })
               }
-       }else{
+       } else {
               e.preventDefault()
               Swal.fire({
                      icon: 'info',
                      title: 'لطفا وارد حساب کاربری خود شوید',
-                    
-                   })
+
+              })
        }
-       
+
+})
+
+let cartCloseBtn = document.querySelector('.cart-close-btn')
+function closeCart(){
+       console.log('close')
+      }
+console.log(cartCloseBtn)
+cartCloseBtn.addEventListener('click',()=>{
+       console.log('close')
 })
