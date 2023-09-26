@@ -7,7 +7,7 @@ function Cart(ordredProduct) {
        <div class="cart-container">
        <div class="row">
               <div class="col-2 cart-close-btn " >
-                     <i class="fa fa-close text-light cart-close-btn fs-1 px-1 py-2 cp cart-close-btn" onclick="closeCart()"></i>
+                     <i class="fa fa-close text-light cart-close-btn fs-1 px-1 py-2 cp cart-close-btn"></i>
               </div>
        </div>
        <hr class="text-light mb-3">
@@ -30,7 +30,7 @@ function Cart(ordredProduct) {
                             </a>
                      </div>
                      <div class="col-2 deleteProduct">
-                     <a class="btn btn-danger">
+                     <a class="btn btn-danger cart-product-delete-btn" data-id=${product.id} data-idSize=${product.id+ '-' + product.size}>
                      حذف
                      </a>
                      </div>

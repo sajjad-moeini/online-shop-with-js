@@ -568,7 +568,8 @@ footer{
            margin: 20vh 5% !important;
      }
      .cart-prodducts-container{
-       overflow-y: auto;
+       height: 65%;
+       overflow-y:scroll;
      }
      .cart-product-image{
        width: 50px;

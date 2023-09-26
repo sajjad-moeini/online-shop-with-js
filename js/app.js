@@ -17,8 +17,6 @@ window.onload = () => {
        if (JSON.parse(localStorage.getItem('cart'))) {
               customerCart = [...JSON.parse(localStorage.getItem('cart'))]
               cartIconElem.style.animation = 'cartAnimation 2s infinite alternate'
-
-
        }
 }
 if (loginBtn) {
@@ -41,32 +39,57 @@ if (logOutBtn) {
               location.href = location.href
        })
 }
+function cartProductsGenrator(){
+       let cartItems = [...JSON.parse(localStorage.getItem('cart'))]
+       let allProducts = store.getState().products[0]
+       let orderedProductInfs = []
+       cartItems.forEach(product => {
+              allProducts.forEach(prod => {
+                     if (Number(product.id == prod.id)) {
+                            let productNewInform = {
+                                   id: prod.id,
+                                   size: product.size,
+                                   count: product.count,
+                                   name: prod.name,
+                                   imgSrc: prod.mainImgSrc,
+                                   price: prod.price
+                            }
+                            orderedProductInfs.push(productNewInform)
+                     }
+              })
+       })
+       document.body.insertAdjacentHTML('beforeend', `
+       ${Cart(orderedProductInfs)}
+       `)
+}
 if (cartIconElem) {
 
        cartIconElem.addEventListener('click', () => {
               if (JSON.parse(localStorage.getItem('isLogin'))) {
                      if (JSON.parse(localStorage.getItem('cart'))) {
-                            let cartItems = [...JSON.parse(localStorage.getItem('cart'))]
-                            let allProducts = store.getState().products[0]
-                            let orderedProductInfs = []
-                            cartItems.forEach(product => {
-                                    allProducts.forEach(prod => {
-                                          if (Number(product.id == prod.id)) {
-                                                 let productNewInform = {
-                                                        id: prod.id,
-                                                        size: product.size,
-                                                        count: product.count,
-                                                        name: prod.name,
-                                                        imgSrc: prod.mainImgSrc,
-                                                        price:prod.price
-                                                 }
-                                                 orderedProductInfs.push(productNewInform)
+
+                            cartProductsGenrator()
+                            let cartCloseBtn = document.querySelector('.cart-close-btn')
+                            let cartDeleteBtn = document.querySelectorAll('.cart-product-delete-btn')
+
+
+                            cartCloseBtn.addEventListener('click', (e) => {
+                                   e.target.parentElement.parentElement.parentElement.remove()
+                            })
+                            cartDeleteBtn.forEach(btn=>{
+                                   btn.addEventListener('click',(e)=>{
+                                          console.log(e.target.dataset)
+                                          let cartProducts = JSON.parse(localStorage.getItem('cart'))
+                                         let newCartProducts = cartProducts.filter(product=>{
+                                          if(product.idSize !== e.target.dataset.idsize){
+                                                        return product
                                           }
                                    })
+                                         localStorage.setItem('cart',JSON.stringify(newCartProducts))
+                                         e.target.parentElement.parentElement.parentElement.parentElement.remove()
+                                         cartProductsGenrator()
+                                   })
                             })
-                            document.body.insertAdjacentHTML('beforeend',`
-                            ${Cart(orderedProductInfs)}
-                            `)
                      } else {
                             Swal.fire({
                                    icon: 'warning',
@@ -139,7 +162,8 @@ addToCartBtn.addEventListener('click', (e) => {
                             let orderedPR = {
                                    id: e.target.dataset.productid,
                                    size: Number(btn.querySelector('span').innerHTML),
-                                   count: btn.querySelector('input').value
+                                   count: btn.querySelector('input').value,
+                                   idSize:`${e.target.dataset.productid + '-' + Number(btn.querySelector('span').innerHTML)}`
                             }
                             if (orderedPR.count) {
                                    isValidCount = true
@@ -168,11 +192,3 @@ addToCartBtn.addEventListener('click', (e) => {
 
 })
 
-let cartCloseBtn = document.querySelector('.cart-close-btn')
-function closeCart(){
-       console.log('close')
-      }
-console.log(cartCloseBtn)
-cartCloseBtn.addEventListener('click',()=>{
-       console.log('close')
-})
