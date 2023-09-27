@@ -47,7 +47,7 @@ ${product.name}
               </div>
               <div class="price h3 mt-auto ">
               قیمت :
-              ${product.price} تومان
+              ${product.price.toLocaleString()} تومان
               </div>
 
        </div>
