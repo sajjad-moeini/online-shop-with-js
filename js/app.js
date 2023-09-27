@@ -39,6 +39,15 @@ if (logOutBtn) {
               location.href = location.href
        })
 }
+function totalPriceGen(){
+       let eachProductPrice = document.querySelectorAll('.cart-single-product-price')
+       let cartTotalPrice = document.querySelector('.cart-total-price')
+       let totalPrice = 0
+        eachProductPrice.forEach((product)=>{
+              totalPrice += Number(product.dataset.price)
+       })
+       cartTotalPrice.innerHTML = `مبلغ کل : ${totalPrice.toLocaleString() } تومان`
+}
  function cartProductsGenrator(){
        let cartItems = [...JSON.parse(localStorage.getItem('cart'))]
        let allProducts = store.getState().products[0]
@@ -58,10 +67,13 @@ if (logOutBtn) {
                      }
               })
        })
+      
        document.body.insertAdjacentHTML('beforeend', `
        ${Cart(orderedProductInfs)}
        `)
+       totalPriceGen()       
 }
+
 if (cartIconElem) {
 
        cartIconElem.addEventListener('click', () => {
@@ -71,6 +83,7 @@ if (cartIconElem) {
                             cartProductsGenrator()
                             let cartCloseBtn = document.querySelector('.cart-close-btn')
                             let cartDeleteBtn = document.querySelectorAll('.cart-product-delete-btn')
+                           let payPrice = document.querySelector('.')
 
 
                             cartCloseBtn.addEventListener('click', (e) => {
@@ -79,17 +92,28 @@ if (cartIconElem) {
                             })
                             cartDeleteBtn.forEach(btn=>{
                                    btn.addEventListener('click',(e)=>{
-                                          console.log(e.target.dataset)
-                                          let cartProducts = JSON.parse(localStorage.getItem('cart'))
-                                         let newCartProducts = cartProducts.filter(product=>{
-                                          if(product.idSize !== e.target.dataset.idsize){
-                                                        return product
-                                          }
-                                   })
-                                   e.target.parentElement.parentElement.remove()
-                                   localStorage.setItem('cart',JSON.stringify(newCartProducts))
-                                   e.target.parentElement.parentElement.parentElement.remove()
-                                         cartProductsGenrator()
+                                          Swal.fire({
+                                                 title: 'آیا از حذف محصول اطمینان دارید ؟',
+                                                 icon:'warning',
+                                                 showCancelButton: true,
+                                                 confirmButtonText: 'بله',
+                                                 cancelButtonText: `لغو`,
+                                               }).then(res=>{
+                                                 if(res.isConfirmed){
+                                                        let cartProducts = JSON.parse(localStorage.getItem('cart'))
+                                                        let newCartProducts = cartProducts.filter(product=>{
+                                                         if(product.idSize !== e.target.dataset.idsize){
+                                                                       return product
+                                                         }
+                                                  })
+                                                  e.target.parentElement.parentElement.remove()
+                                                  localStorage.setItem('cart',JSON.stringify(newCartProducts))
+                                                  totalPriceGen()
+                                                  e.target.parentElement.parentElement.parentElement.remove()
+                                                        cartProductsGenrator()
+                                                 }
+                                               })
+                                       
                                    })
                             })
                      } else {

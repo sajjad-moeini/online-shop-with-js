@@ -34,7 +34,7 @@ function Cart(ordredProduct) {
                      حذف
                      </a>
                      </div>
-                     <div class="col-3 product-price text-light d-flex-centering">
+                     <div class="col-3 cart-single-product-price text-light d-flex-centering" data-price=${product.price * product.count}>
                             ${(product.price * product.count).toLocaleString()} تومان
                      </div>
               </div>
@@ -44,10 +44,10 @@ function Cart(ordredProduct) {
       </div>
        <hr class="text-light my-3">
        <div class="cart-footer d-flex justify-content-between align-items-center my-2">
-              <div class="h6 text-light ms-5">
+              <div class="h6 text-light ms-5 cart-total-price">
                      مبلغ کل   : 199000 تومان
               </div>
-              <a href="#" class="btn btn-success me-5">
+              <a href="#" class="btn btn-success me-5 pay-price">
                      پرداخت
               </a>
             
