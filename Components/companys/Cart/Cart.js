@@ -1,7 +1,7 @@
 
 
-function Cart(ordredProduct) {
-     
+function Cart(ordredProduct,title) {
+     console.log(title)
 
        return (`
        <div class="cart-container">
@@ -16,7 +16,7 @@ function Cart(ordredProduct) {
               return (`
                      <div class="row align-items-center">
                      <div class="col-2 ">
-                            <img src=${product.imgSrc} class="img-fluid cart-product-image"
+                            <img src=${(title == 'محصولات' ? '../':'' )+ product.imgSrc} class="img-fluid cart-product-image"
                                    alt="src">
                      </div>
                      <div class="col-3 ">

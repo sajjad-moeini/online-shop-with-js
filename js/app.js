@@ -1,4 +1,3 @@
-
 import Cart from "../Components/companys/Cart/Cart.js"
 import store from "../store/store.js"
 
@@ -12,9 +11,9 @@ let addToCartBtn = document.querySelector('.add-to-cart-btn')
 let sizesBtns = document.querySelectorAll('.size-box-container')
 
 let customerCart = []
-
+let pageTitle = document.title
 window.onload = () => {
-       if (JSON.parse(localStorage.getItem('cart'))) {
+       if (JSON.parse(localStorage.getItem('cart')).length > 0) {
               customerCart = [...JSON.parse(localStorage.getItem('cart'))]
               cartIconElem.style.animation = 'cartAnimation 2s infinite alternate'
        }
@@ -28,7 +27,9 @@ if (loginBtn) {
                      title: 'خوش آمدید',
                      confirmButtonText: 'ممنون'
               }).then(result => {
-                     result.isConfirmed && (location.href = location.href)
+                     if(result.isConfirmed){
+                            location.href = location.href
+                     }
               })
 
        })
@@ -39,16 +40,16 @@ if (logOutBtn) {
               location.href = location.href
        })
 }
-function totalPriceGen(){
+function totalPriceGen() {
        let eachProductPrice = document.querySelectorAll('.cart-single-product-price')
        let cartTotalPrice = document.querySelector('.cart-total-price')
        let totalPrice = 0
-        eachProductPrice.forEach((product)=>{
+       eachProductPrice.forEach((product) => {
               totalPrice += Number(product.dataset.price)
        })
-       cartTotalPrice.innerHTML = `مبلغ کل : ${totalPrice.toLocaleString() } تومان`
+       cartTotalPrice.innerHTML = `مبلغ کل : ${totalPrice.toLocaleString()} تومان`
 }
- function cartProductsGenrator(){
+function cartProductsGenrator() {
        let cartItems = [...JSON.parse(localStorage.getItem('cart'))]
        let allProducts = store.getState().products[0]
        let orderedProductInfs = []
@@ -67,11 +68,11 @@ function totalPriceGen(){
                      }
               })
        })
-      
+
        document.body.insertAdjacentHTML('beforeend', `
-       ${Cart(orderedProductInfs)}
+       ${Cart(orderedProductInfs,pageTitle)}
        `)
-       totalPriceGen()       
+       totalPriceGen()
 }
 
 if (cartIconElem) {
@@ -83,37 +84,41 @@ if (cartIconElem) {
                             cartProductsGenrator()
                             let cartCloseBtn = document.querySelector('.cart-close-btn')
                             let cartDeleteBtn = document.querySelectorAll('.cart-product-delete-btn')
-                           let payPrice = document.querySelector('.')
+                            let payPrice = document.querySelector('.pay-price')
 
 
+                            payPrice.addEventListener('click', (e) => {
+                                   localStorage.setItem('cart',JSON.stringify([]))
+                                   history.go(0)
+                            })
                             cartCloseBtn.addEventListener('click', (e) => {
                                    e.target.parentElement.parentElement.parentElement.remove()
                                    history.go(0)
                             })
-                            cartDeleteBtn.forEach(btn=>{
-                                   btn.addEventListener('click',(e)=>{
+                            cartDeleteBtn.forEach(btn => {
+                                   btn.addEventListener('click', (e) => {
                                           Swal.fire({
                                                  title: 'آیا از حذف محصول اطمینان دارید ؟',
-                                                 icon:'warning',
+                                                 icon: 'warning',
                                                  showCancelButton: true,
                                                  confirmButtonText: 'بله',
                                                  cancelButtonText: `لغو`,
-                                               }).then(res=>{
-                                                 if(res.isConfirmed){
+                                          }).then(res => {
+                                                 if (res.isConfirmed) {
                                                         let cartProducts = JSON.parse(localStorage.getItem('cart'))
-                                                        let newCartProducts = cartProducts.filter(product=>{
-                                                         if(product.idSize !== e.target.dataset.idsize){
-                                                                       return product
-                                                         }
-                                                  })
-                                                  e.target.parentElement.parentElement.remove()
-                                                  localStorage.setItem('cart',JSON.stringify(newCartProducts))
-                                                  totalPriceGen()
-                                                  e.target.parentElement.parentElement.parentElement.remove()
+                                                        let newCartProducts = cartProducts.filter(product => {
+                                                               if (product.idSize !== e.target.dataset.idsize) {
+                                                                      return product
+                                                               }
+                                                        })
+                                                        e.target.parentElement.parentElement.remove()
+                                                        localStorage.setItem('cart', JSON.stringify(newCartProducts))
+                                                        totalPriceGen()
+                                                        e.target.parentElement.parentElement.parentElement.remove()
                                                         cartProductsGenrator()
                                                  }
-                                               })
-                                       
+                                          })
+
                                    })
                             })
                      } else {
@@ -189,7 +194,7 @@ addToCartBtn.addEventListener('click', (e) => {
                                    id: e.target.dataset.productid,
                                    size: Number(btn.querySelector('span').innerHTML),
                                    count: btn.querySelector('input').value,
-                                   idSize:`${e.target.dataset.productid + '-' + Number(btn.querySelector('span').innerHTML)}`
+                                   idSize: `${e.target.dataset.productid + '-' + Number(btn.querySelector('span').innerHTML)}`
                             }
                             if (orderedPR.count) {
                                    isValidCount = true
