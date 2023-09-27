@@ -11,7 +11,7 @@ function Cart(ordredProduct) {
               </div>
        </div>
        <hr class="text-light mb-3">
-       <div class="cart-prodducts-container">
+       <div class="cart-products-container">
        ${ordredProduct.map(product => {
               return (`
                      <div class="row align-items-center">

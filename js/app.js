@@ -39,7 +39,7 @@ if (logOutBtn) {
               location.href = location.href
        })
 }
-function cartProductsGenrator(){
+ function cartProductsGenrator(){
        let cartItems = [...JSON.parse(localStorage.getItem('cart'))]
        let allProducts = store.getState().products[0]
        let orderedProductInfs = []
@@ -75,6 +75,7 @@ if (cartIconElem) {
 
                             cartCloseBtn.addEventListener('click', (e) => {
                                    e.target.parentElement.parentElement.parentElement.remove()
+                                   history.go(0)
                             })
                             cartDeleteBtn.forEach(btn=>{
                                    btn.addEventListener('click',(e)=>{
@@ -85,8 +86,9 @@ if (cartIconElem) {
                                                         return product
                                           }
                                    })
-                                         localStorage.setItem('cart',JSON.stringify(newCartProducts))
-                                         e.target.parentElement.parentElement.parentElement.parentElement.remove()
+                                   e.target.parentElement.parentElement.remove()
+                                   localStorage.setItem('cart',JSON.stringify(newCartProducts))
+                                   e.target.parentElement.parentElement.parentElement.remove()
                                          cartProductsGenrator()
                                    })
                             })
